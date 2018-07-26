@@ -7,8 +7,13 @@ RSpec.describe Customer, type: :model do
   end
 
   it 'Overwrite attributes' do
-    customer = create(:customer, name: 'Paulo Barbosa')
-    expect(customer.full_name).to eq 'Sr. Paulo Barbosa'
+    customer = create(:customer, vip: false, days_to_pay: 15)
+    expect(customer.vip).to be_falsey
+  end
+
+  it 'Inheritance - vip' do
+    customer = create(:customer_vip)
+    expect(customer.vip).to be_truthy
   end
 
   it { expect { create(:customer) }.to change(Customer, :count).by(1) }
