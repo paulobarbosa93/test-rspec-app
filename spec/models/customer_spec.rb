@@ -24,7 +24,7 @@ RSpec.describe Customer, type: :model do
 
   it { expect { create(:customer) }.to change(Customer, :count).by(1) }
 
-  it 'Atributo transitório' do
+  it 'Transient attributes' do
     customer = create(:customer_free, upcased: true)
     expect(customer.name.upcase).to eq customer.name
   end
