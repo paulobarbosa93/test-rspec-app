@@ -34,4 +34,9 @@ RSpec.describe Customer, type: :model do
     expect(customer.gender).to eq 'M'
     expect(customer.vip).to be_truthy
   end
+
+  it 'has_many' do
+    customer = create(:customer, :with_orders, qtt_orders: 5)
+    expect(customer.orders.count).to eq 5
+  end
 end

@@ -3,6 +3,7 @@ FactoryBot.define do
 
     transient do
       upcased false
+      qtt_orders 3
     end
 
     name { Faker::Name.name }
@@ -16,6 +17,12 @@ FactoryBot.define do
 
     trait :male do
       gender 'M'
+    end
+
+    trait :with_orders do
+      after(:create) do |customer, evaluator|
+        create_list(:order, evaluator.qtt_orders, customer: customer)
+      end
     end
 
     factory :customer_vip do
