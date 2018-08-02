@@ -10,4 +10,9 @@ RSpec.describe Order, type: :model do
     orders = create_list(:order, 3)
     expect(orders.count).to eq 3
   end
+
+  it 'Create pair of orders' do
+    orders = create_pair(:order)
+    expect(orders.count).to eq 2
+  end
 end
