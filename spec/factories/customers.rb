@@ -6,6 +6,7 @@ FactoryBot.define do
     end
 
     name { Faker::Name.name }
+    address { Faker::Address.street_name }
     # email { Faker::Internet.email }
 
     sequence(:email) { |n| "email#{n}@email.com" }
