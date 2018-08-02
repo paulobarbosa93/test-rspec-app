@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :customer, aliases: [:user] do
-
     transient do
       upcased false
       qtt_orders 3
@@ -9,7 +8,7 @@ FactoryBot.define do
     name { Faker::Name.name }
     # email { Faker::Internet.email }
 
-    sequence(:email) { |n| "email#{n}@email.com"  }
+    sequence(:email) { |n| "email#{n}@email.com" }
 
     trait :female do
       gender 'F'
