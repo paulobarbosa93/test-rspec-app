@@ -39,4 +39,11 @@ RSpec.describe Customer, type: :model do
     customer = create(:customer, :with_orders, qtt_orders: 5)
     expect(customer.orders.count).to eq 5
   end
+
+  it 'travel to' do
+    travel_to Time.zone.local(2004, 11, 23, 01, 04, 44) do
+      @customer = create(:customer_vip)
+    end
+    expect(@customer.created_at).to eq Time.zone.local(2004, 11, 23, 01, 04, 44)
+  end
 end
