@@ -29,6 +29,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.include ActiveSupport::Testing::TimeHelpers
   config.include FactoryBot::Syntax::Methods
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
