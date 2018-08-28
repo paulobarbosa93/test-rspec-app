@@ -20,6 +20,13 @@ RSpec.describe CustomersController, type: :controller do
       expect(response).to be_success
     end
 
+    it 'flash notice' do
+      customer_params = attributes_for(:customer)
+      sign_in @member
+      post :create, params: { customer: customer_params }
+      expect(flash[:notice]).to match(/successfully created/)
+    end
+
     it 'create with valid attributes' do
       customer_params = attributes_for(:customer)
       sign_in @member
