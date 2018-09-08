@@ -25,6 +25,14 @@ RSpec.describe "Customers", type: :request do
       )
     end
 
+    it 'show - Pure RSpec + JSON' do
+      get '/customers/1.json'
+      parsed_body = JSON.parse(response.body)
+      expect(parsed_body.fetch('id')).to eq 1
+      expect(parsed_body.fetch('name')).to be_kind_of(String)
+      expect(parsed_body.fetch('email')).to be_kind_of(String)
+    end
+
     it 'create - JSON' do
       member = create(:member)
       login_as(member, scope: :member)
