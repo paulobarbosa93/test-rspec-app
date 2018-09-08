@@ -1,5 +1,7 @@
 # Webmock Gem
 require 'webmock/rspec'
+# Json Matchers Gem
+require 'json_matchers/rspec'
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
